@@ -35,13 +35,13 @@ if not os.path.exists("uploaded_images"):
 tensorflow_logo = "logo.jpg"  # Path to your TensorFlow logo image
 
 # Layout with two columns
-col1, col2 = st.columns([12, 1])
+col1, col2 = st.columns([9, 1])
 
 with col1:
     st.markdown('<h1 class="tomato-disease-header">TOMATO_DISEASE_DETECTION🍅</h1>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown(f'<a href="https://www.tensorflow.org/api_docs/python/tf/all_symbols"><img src="{tensorflow_logo}" width="100"></a>', unsafe_allow_html=True)
+    st.image(tensorflow_logo, width=100, use_column_width=False)
 
 # Add instructions
 st.markdown('<h2 class="instructions-header">Instructions🪴</h2>', unsafe_allow_html=True)
