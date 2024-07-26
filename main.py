@@ -25,24 +25,17 @@ Class_Names = [
 if not os.path.exists("uploaded_images"):
     os.makedirs("uploaded_images")
 
-# Custom CSS for styling
-st.markdown(
-    """
-    <style>
-    .tensorflow-logo {
-        float: left;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # TensorFlow logo path
-tensorflow_logo = "path_to_tensorflow_logo.png"  # Path to your TensorFlow logo image
-st.image(tensorflow_logo, width=50, caption="", use_column_width=False, class_="tensorflow-logo")
+tensorflow_logo = "logo.jpg"  # Path to your TensorFlow logo image
 
-# Title of the app
-st.title("TOMATO_DISEASE_DETECTION")
+# Layout with two columns
+col1, col2 = st.columns([3, 1])
+
+with col1:
+    st.title("TOMATO_DISEASE_DETECTION")
+
+with col2:
+    st.image(tensorflow_logo, width=50, use_column_width=False)
 
 # Add instructions
 st.markdown("""
@@ -51,6 +44,10 @@ st.markdown("""
 2. Wait for the model to make a prediction.
 3. View the predicted disease and its confidence score.
 """)
+
+# Sidebar for additional options
+st.sidebar.header("Options")
+show_more_probabilities = st.sidebar.checkbox("Show More Probabilities", value=False)
 
 # File uploader for image with extended text
 uploaded_file = st.file_uploader("Choose an image in JPG/JPEG/PNG format...", type=["jpg", "jpeg", "png"])
@@ -84,10 +81,11 @@ if uploaded_file is not None:
     else:
         st.write(f"Prediction: {predicted_class} with confidence {confidence:.2f}")
     
-    # Display prediction probabilities
-    st.subheader("Prediction Probabilities")
-    probabilities = {Class_Names[i]: predictions[0][i] for i in range(len(Class_Names))}
-    st.bar_chart(probabilities)
+    # Display prediction probabilities if the option is selected
+    if show_more_probabilities:
+        st.subheader("Prediction Probabilities")
+        probabilities = {Class_Names[i]: predictions[0][i] for i in range(len(Class_Names))}
+        st.bar_chart(probabilities)
 
 # Footer with model information and contact form
 st.markdown("""
