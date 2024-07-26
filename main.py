@@ -29,17 +29,17 @@ if not os.path.exists("uploaded_images"):
 tensorflow_logo = "logo.jpg"  # Path to your TensorFlow logo image
 
 # Layout with two columns
-col1, col2 = st.columns([3, 1])
+col1, col2 = st.columns([6, 1])
 
 with col1:
-    st.title("TOMATO_DISEASE_DETECTION")
+    st.markdown("<h1 style='text-align: left; vertical-align: left;'>TOMATO_DISEASE_DETECTION🍅</h1>", unsafe_allow_html=True)
 
 with col2:
-    st.image(tensorflow_logo, width=50, use_column_width=False)
+    st.image(tensorflow_logo, width=100, use_column_width=False)
 
 # Add instructions
 st.markdown("""
-## Instructions
+## Instructions🪴
 1. Upload an image of a tomato leaf in JPG, JPEG, or PNG format.
 2. Wait for the model to make a prediction.
 3. View the predicted disease and its confidence score.
@@ -83,9 +83,9 @@ if uploaded_file is not None:
     
     # Display prediction probabilities if the option is selected
     if show_more_probabilities:
-        st.subheader("Prediction Probabilities")
+        st.sidebar.subheader("Prediction Probabilities")
         probabilities = {Class_Names[i]: predictions[0][i] for i in range(len(Class_Names))}
-        st.bar_chart(probabilities)
+        st.sidebar.bar_chart(probabilities)
 
 # Footer with model information and contact form
 st.markdown("""
