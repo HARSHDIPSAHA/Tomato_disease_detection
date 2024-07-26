@@ -25,8 +25,32 @@ Class_Names = [
 if not os.path.exists("uploaded_images"):
     os.makedirs("uploaded_images")
 
+# Custom CSS for styling
+st.markdown(
+    """
+    <style>
+    .tensorflow-logo {
+        float: left;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# TensorFlow logo path
+tensorflow_logo = "path_to_tensorflow_logo.png"  # Path to your TensorFlow logo image
+st.image(tensorflow_logo, width=50, caption="", use_column_width=False, class_="tensorflow-logo")
+
 # Title of the app
 st.title("TOMATO_DISEASE_DETECTION")
+
+# Add instructions
+st.markdown("""
+## Instructions
+1. Upload an image of a tomato leaf in JPG, JPEG, or PNG format.
+2. Wait for the model to make a prediction.
+3. View the predicted disease and its confidence score.
+""")
 
 # File uploader for image with extended text
 uploaded_file = st.file_uploader("Choose an image in JPG/JPEG/PNG format...", type=["jpg", "jpeg", "png"])
@@ -59,3 +83,19 @@ if uploaded_file is not None:
         st.write("New disease detected: research needed")
     else:
         st.write(f"Prediction: {predicted_class} with confidence {confidence:.2f}")
+    
+    # Display prediction probabilities
+    st.subheader("Prediction Probabilities")
+    probabilities = {Class_Names[i]: predictions[0][i] for i in range(len(Class_Names))}
+    st.bar_chart(probabilities)
+
+# Footer with model information and contact form
+st.markdown("""
+## Model Information
+- **Model Architecture**: Used Tensorflow neural and convolution layers for prediction.
+- **Training Data**: Describe the training data used for the model.
+- **Performance Metrics**: .
+
+## Contact
+If you have any questions or feedback, please mail at: harshdipsaha95@gmail.com.
+""")
