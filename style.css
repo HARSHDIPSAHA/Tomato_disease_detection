@@ -1,0 +1,73 @@
+/* style.css */
+
+/* General styling */
+body {
+    background-color: #f0f2f6;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ff6347; /* Tomato color */
+}
+
+h2 {
+    font-size: 2em;
+    color: #228b22; /* Forest green color */
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #ff6347; /* Tomato color */
+}
+
+.sidebar .sidebar-content {
+    background-color: #f0f2f6;
+}
+
+.sidebar .sidebar-content .sidebar-item {
+    background-color: #f0f2f6;
+    color: #333;
+}
+
+.uploaded-image {
+    margin: 10px 0;
+    border: 2px solid #228b22;
+    border-radius: 10px;
+}
+
+/* Button styling */
+button {
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ee5a34;
+}
+
+.upload-box {
+    background-color: #ffffff;
+    border: 2px dashed #228b22;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f0f2f6;
+    border-top: 1px solid #ccc;
+}

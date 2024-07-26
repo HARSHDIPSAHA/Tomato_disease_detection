@@ -8,6 +8,12 @@ from io import BytesIO
 # Load your Keras model
 MODEL = tf.keras.models.load_model('models/model.keras')
 
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+load_css("style.css")
+
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
     return image
@@ -29,10 +35,10 @@ if not os.path.exists("uploaded_images"):
 tensorflow_logo = "logo.jpg"  # Path to your TensorFlow logo image
 
 # Layout with two columns
-col1, col2 = st.columns([6, 1])
+col1, col2 = st.columns([9, 1])
 
 with col1:
-    st.markdown("<h1 style='text-align: left; vertical-align: left;'>TOMATO_DISEASE_DETECTION🍅</h1>", unsafe_allow_html=True)
+    st.header("TOMATO_DISEASE_DETECTION🍅")
 
 with col2:
     st.image(tensorflow_logo, width=100, use_column_width=False)
