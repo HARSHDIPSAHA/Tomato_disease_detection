@@ -1,73 +1,55 @@
 /* style.css */
 
+/* Set the color for the header */
+h1, h2, h3, h4, h5, h6 {
+    color: lightgreen;
+}
+
+/* Set the color for the sidebar header */
+.sidebar .sidebar-content h2 {
+    color: pink;
+}
+
+/* Specific colors for the sections */
+h2:contains('Instructions🪴') {
+    color: orange;
+}
+
+h2:contains('Model Information') {
+    color: lightblue;
+}
+
+h2:contains('Contact') {
+    color: red;
+}
+
 /* General styling */
 body {
-    background-color: #f0f2f6;
-    color: #333;
     font-family: 'Arial', sans-serif;
 }
 
-header {
-    text-align: center;
-    padding: 10px;
+/* Custom class names for more control */
+.options-header {
+    color: pink;
 }
 
-h1 {
-    font-size: 3em;
-    color: #ff6347; /* Tomato color */
+.instructions-header {
+    color: orange;
 }
 
-h2 {
-    font-size: 2em;
-    color: #228b22; /* Forest green color */
+.model-info-header {
+    color: lightblue;
 }
 
-h3 {
-    font-size: 1.5em;
-    color: #ff6347; /* Tomato color */
+.contact-header {
+    color: red;
 }
 
-.sidebar .sidebar-content {
-    background-color: #f0f2f6;
+.tomato-disease-header {
+    color: lightgreen;
 }
 
-.sidebar .sidebar-content .sidebar-item {
-    background-color: #f0f2f6;
-    color: #333;
-}
-
-.uploaded-image {
-    margin: 10px 0;
-    border: 2px solid #228b22;
-    border-radius: 10px;
-}
-
-/* Button styling */
-button {
-    background-color: #ff6347; /* Tomato color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ee5a34;
-}
-
-.upload-box {
-    background-color: #ffffff;
-    border: 2px dashed #228b22;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #f0f2f6;
-    border-top: 1px solid #ccc;
+/* Reduce the gap between the sidebar and the main content */
+.css-1d391kg {
+    padding: 0 !important;
 }
